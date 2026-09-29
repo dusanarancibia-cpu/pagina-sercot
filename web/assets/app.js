@@ -78,7 +78,7 @@ if(choice){
   }
   function showSummary(){
     steps.textContent='✓ Tu situación / Resumen / Contacto';intro.textContent='Tu consulta está preparada';result.replaceChildren();
-    const text='Consulta para Sercot SPA\nServicio: '+selectedName()+'\n\n'+consultationText();
+    const text='Consulta para Sercot Ltda\nServicio: '+selectedName()+'\n\n'+consultationText();
     const summary=el('div',null,'consultation-summary');summary.append(el('small','SERVICIO'),el('h3',selectedName()),el('p',consultationText()));
     const notice=el('p','¿Quieres conversar con Sercot sobre esta consulta? En el siguiente paso puedes dejar tu nombre, teléfono y correo.','delivery-note');
     const request=el('button','Quiero que me contacten →','button');request.type='button';request.onclick=showContact;
@@ -107,7 +107,7 @@ if(choice){
   }
   function showRequest(){
     steps.textContent='✓ Consulta   /   ✓ Resumen   /   ✓ Datos de contacto';intro.textContent='Tu solicitud está lista para enviar';result.replaceChildren();
-    const text='Solicitud de contacto para Sercot SPA\nNombre: '+contactName+'\nTeléfono: '+contactPhone+'\nCorreo: '+contactEmail+'\nServicio: '+selectedName()+'\n\n'+consultationText()+'\n\nSolicito que Sercot me contacte para conversar sobre esta consulta.';
+    const text='Solicitud de contacto para Sercot Ltda\nNombre: '+contactName+'\nTeléfono: '+contactPhone+'\nCorreo: '+contactEmail+'\nServicio: '+selectedName()+'\n\n'+consultationText()+'\n\nSolicito que Sercot me contacte para conversar sobre esta consulta.';
     const summary=el('div',null,'consultation-summary');summary.append(el('h3','Quiero que Sercot me contacte'),el('p',text));
     const notice=el('p','Aún no se ha enviado. Al pulsar el botón se abrirá WhatsApp con tu solicitud escrita; envíala desde ahí para que llegue a Sercot.','delivery-note');
     const send=el('a','Enviar por WhatsApp','button');send.href='https://wa.me/56973082614?text='+encodeURIComponent(text);send.target='_blank';send.rel='noopener';

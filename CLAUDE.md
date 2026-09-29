@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Contexto
 
-Sitio web de **Sercot SPA**, empresa de servicios contables y tributarios en Chile. Dominios: `sercot.cl` (principal) y `sercotspa.cl` (redirige a `sercot.cl`), ambos en cPanel. Esto es una **maqueta estática** de la nueva web; aún no está publicada. El nombre legal es **Sercot SPA** (ya corregido desde "Ltda" en `build.py` y `app.js`).
+Sitio web de **Sercot Ltda**, empresa de servicios contables y tributarios en Chile. Dominios: `sercot.cl` (principal) y `sercotspa.cl` (redirige a `sercot.cl`), ambos en cPanel. Es un sitio estático generado con Python. El nombre que se muestra en el sitio es **Sercot Ltda** (en `build.py` y `app.js`); aunque el dominio de respaldo se llama `sercotspa.cl`, no cambiar a "SPA" sin confirmación.
 
 Idioma del sitio y de la documentación: español de Chile (`lang="es-CL"`).
 
@@ -25,7 +25,7 @@ No hay linter, framework de tests ni gestor de paquetes. Ejecutar `build.py` y l
 - **Los `.html` de `web/` son generados. No editarlos a mano**: `web/build.py` los sobrescribe. Todo el contenido vive en `build.py`: la lista `services` (10 servicios), la plantilla `shell()` (cabecera, pie, meta), las categorías de `servicios/index.html` y los mapas de servicios relacionados.
 - Preguntas frecuentes por servicio: `web/service-faqs.json`, indexado por la posición del servicio en `services` (2 por servicio). Cambiar el orden de `services` desincroniza el JSON y los índices de `categories`, `related_indices` y `cards(indices=...)`.
 - `web/assets/app.js` implementa el recorrido de consulta de `contacto.html` (necesidad → situaciones → resumen → datos de contacto → solicitud). Los textos de ayuda por servicio (`hints`, `welcomes`) están duplicados en JS, no en `build.py`. El servicio llega por `?servicio=<slug>` desde las páginas de servicio.
-- `web/assets/style.css` contiene todos los estilos. El cache-buster `?v=15` está fijo en `shell()`; súbelo al cambiar CSS/JS.
+- `web/assets/style.css` contiene todos los estilos. El cache-buster `?v=16` está fijo en `shell()`; súbelo al cambiar CSS/JS.
 - `build.py` copia dos fotos desde `../Fotos reales/` (carpeta privada, no incluida) hacia `web/assets/`. Si no existe, usa las copias ya presentes en `assets/`.
 - Los identificadores de necesidad `tema-tributario`, `crear-organizar` y `orientacion` no son servicios reales; solo existen en el selector de contacto.
 
