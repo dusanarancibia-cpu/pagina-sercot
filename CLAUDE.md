@@ -25,16 +25,16 @@ No hay linter, framework de tests ni gestor de paquetes. Ejecutar `build.py` y l
 - **Los `.html` de `web/` son generados. No editarlos a mano**: `web/build.py` los sobrescribe. Todo el contenido vive en `build.py`: la lista `services` (10 servicios), la plantilla `shell()` (cabecera, pie, meta), las categorías de `servicios/index.html` y los mapas de servicios relacionados.
 - Preguntas frecuentes por servicio: `web/service-faqs.json`, indexado por la posición del servicio en `services` (2 por servicio). Cambiar el orden de `services` desincroniza el JSON y los índices de `categories`, `related_indices` y `cards(indices=...)`.
 - `web/assets/app.js` implementa el recorrido de consulta de `contacto.html` (necesidad → situaciones → resumen → datos de contacto → solicitud). Los textos de ayuda por servicio (`hints`, `welcomes`) están duplicados en JS, no en `build.py`. El servicio llega por `?servicio=<slug>` desde las páginas de servicio.
-- `web/assets/style.css` contiene todos los estilos. El cache-buster `?v=12` está fijo en `shell()`; súbelo al cambiar CSS/JS.
+- `web/assets/style.css` contiene todos los estilos. El cache-buster `?v=15` está fijo en `shell()`; súbelo al cambiar CSS/JS.
 - `build.py` copia dos fotos desde `../Fotos reales/` (carpeta privada, no incluida) hacia `web/assets/`. Si no existe, usa las copias ya presentes en `assets/`.
 - Los identificadores de necesidad `tema-tributario`, `crear-organizar` y `orientacion` no son servicios reales; solo existen en el selector de contacto.
 
 ## Estado y decisiones pendientes
 
-- Todas las páginas llevan `noindex,nofollow` y una barra "Vista previa privada", y `verify.py` **exige** el noindex. Al publicar hay que quitar ambos (en `shell()` y en `verify.py`) y agregar canonical y sitemap para `https://sercot.cl`.
-- **El formulario no envía nada**: solo copia la solicitud. Se conectará al backend/panel de Fabián (el endpoint aún no existe). `INTEGRACION.md` define el punto de conexión (`showContact()` / `showRequest()` en `app.js`), el contrato JSON propuesto y los criterios de aceptación. No enviar datos sin acción explícita del usuario ni mostrar confirmación antes de la recepción real.
-- Publicación: se subirá manualmente el contenido de `web/` a cPanel, aunque se quiere evaluar automatizarla (cPanel Git Version Control con `.cpanel.yml`, o GitHub Actions con FTP). El proyecto no es un repositorio git todavía.
-- El nuevo sitio reemplaza al actual de `sercot.cl`. **Alcance: solo pequeños arreglos y mejoras puntuales; no rediseñar ni reescribir estructura, diseño o contenido.** Falta confirmar qué URLs antiguas requieren redirecciones 301 (configurar en `.htaccess`).
+- Versión final lista para publicar: sin `noindex`, sin barra de vista previa, con canonical por página (`shell(..., path)`), `robots.txt` y `sitemap.xml` generados por `build.py`. `verify.py` falla si una página tiene `noindex`.
+- **El formulario no envía a un backend**: el paso final abre WhatsApp (+56 9 7308 2614) con la solicitud escrita. Hay además un botón flotante de WhatsApp en todas las páginas (`shell()` + final de `style.css`). El panel de Fabián sigue pendiente; `INTEGRACION.md` define el punto de conexión (`showContact()` / `showRequest()` en `app.js`) y el contrato propuesto.
+- Publicación manual: `sercot-sitio.zip` (solo archivos publicables, sin `build.py`, `verify.py` ni `service-faqs.json`) se sube y extrae desde el Administrador de archivos de cPanel en `public_html`. Ambos dominios usan `/public_html`. El hosting no tiene Git Version Control y la cuenta de GitHub tiene un problema de facturación que impide GitHub Actions (`.github/workflows/deploy.yml` queda sin uso). Repo: `dusanarancibia-cpu/pagina-sercot`.
+- Alcance: solo pequeños arreglos y mejoras puntuales; no rediseñar ni reescribir estructura, diseño o contenido. Falta confirmar qué URLs antiguas requieren redirecciones 301 (`.htaccess`), y hacer respaldo del WordPress actual antes de reemplazar.
 - Las afirmaciones tributarias no están confirmadas (p. ej., qué es exactamente la "declaración de inventarios" de reciclaje). No agregar requisitos o plazos tributarios no aprobados.
 
 ## Documentación existente

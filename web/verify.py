@@ -26,7 +26,7 @@ for path,page in pages.items():
     if page.h1!=1: errors.append(f'{path.name}: expected one H1')
     if not page.title or page.title in titles: errors.append(f'{path.name}: missing or duplicate title')
     if not page.description or page.description in descriptions: errors.append(f'{path.name}: missing or duplicate description')
-    if page.robots!='noindex,nofollow': errors.append(f'{path.name}: preview not marked noindex')
+    if page.robots and 'noindex' in page.robots: errors.append(f'{path.name}: page marked noindex')
     titles.add(page.title); descriptions.add(page.description)
     for link in page.links:
         u=urlsplit(link)
@@ -36,4 +36,4 @@ for path,page in pages.items():
         if not target.exists(): errors.append(f'{path.name}: missing {link}')
         elif u.fragment and target in pages and u.fragment not in pages[target].ids: errors.append(f'{path.name}: missing anchor {link}')
 if errors: raise SystemExit('\n'.join(errors))
-print(f'PASS: {len(pages)} pages; {checks} local links/resources; unique titles/descriptions; H1 and preview indexing controls.')
+print(f'PASS: {len(pages)} pages; {checks} local links/resources; unique titles/descriptions; H1 and indexing.')

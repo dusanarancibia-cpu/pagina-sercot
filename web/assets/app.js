@@ -98,7 +98,7 @@ if(choice){
     const emailLabel=el('label','Correo electrónico');emailLabel.htmlFor='contact-email';
     const email=el('input');email.id='contact-email';email.type='email';email.autocomplete='email';email.required=true;email.maxLength=254;email.value=contactEmail;email.oninput=()=>{contactEmail=email.value};
     const purpose=el('p','Al solicitar contacto, pides que Sercot te contacte para conversar sobre la consulta que acabas de preparar.','field-help');
-    const note=el('p','Vista previa: tus datos aún no se enviarán. Podrás revisar y copiar la solicitud completa.','delivery-note');
+    const note=el('p','Tus datos solo se usan para armar tu solicitud. Podrás revisarla antes de enviarla por WhatsApp.','delivery-note');
     const submit=el('button','Preparar mi solicitud de contacto →','button');submit.type='submit';
     const back=el('button','Volver al resumen','secondary-action');back.type='button';back.onclick=showSummary;
     form.append(nameLabel,name,phoneLabel,phone,emailLabel,email,purpose,note,submit,back);
@@ -106,17 +106,17 @@ if(choice){
     result.append(context,form);focusHeading();
   }
   function showRequest(){
-    steps.textContent='✓ Consulta   /   ✓ Resumen   /   ✓ Datos de contacto';intro.textContent='Tu solicitud está preparada';result.replaceChildren();
+    steps.textContent='✓ Consulta   /   ✓ Resumen   /   ✓ Datos de contacto';intro.textContent='Tu solicitud está lista para enviar';result.replaceChildren();
     const text='Solicitud de contacto para Sercot SPA\nNombre: '+contactName+'\nTeléfono: '+contactPhone+'\nCorreo: '+contactEmail+'\nServicio: '+selectedName()+'\n\n'+consultationText()+'\n\nSolicito que Sercot me contacte para conversar sobre esta consulta.';
     const summary=el('div',null,'consultation-summary');summary.append(el('h3','Quiero que Sercot me contacte'),el('p',text));
-    const notice=el('p','Todavía no se ha enviado ni registrado en Sercot. Esta es una vista previa; cuando conectemos la atención podrás enviar la solicitud y recibir una confirmación real.','delivery-note');
-    const copy=el('button','Copiar mi solicitud de contacto','button');copy.type='button';
+    const notice=el('p','Aún no se ha enviado. Al pulsar el botón se abrirá WhatsApp con tu solicitud escrita; envíala desde ahí para que llegue a Sercot.','delivery-note');
+    const send=el('a','Enviar por WhatsApp','button');send.href='https://wa.me/56973082614?text='+encodeURIComponent(text);send.target='_blank';send.rel='noopener';
+    const copy=el('button','Copiar mi solicitud de contacto','secondary-action');copy.type='button';
     const status=el('p',null,'copy-status');status.setAttribute('role','status');
-    copy.onclick=async()=>{try{await navigator.clipboard.writeText(text);status.textContent='Solicitud copiada. Incluye tu consulta, nombre, teléfono y correo; aún no se ha enviado.'}catch{status.textContent='Selecciona y copia el texto de la solicitud que aparece arriba.'}};
+    copy.onclick=async()=>{try{await navigator.clipboard.writeText(text);status.textContent='Solicitud copiada. Puedes pegarla en un mensaje o correo a Sercot.'}catch{status.textContent='Selecciona y copia el texto de la solicitud que aparece arriba.'}};
     const edit=el('button','Editar mis datos de contacto','secondary-action');edit.type='button';edit.onclick=showContact;
     const editQuery=el('button','Editar mi consulta','secondary-action');editQuery.type='button';editQuery.onclick=()=>showForm();
-    const thanks=el('div',null,'chosen-service');thanks.append(el('small','MENSAJE PREVISTO TRAS EL ENVÍO REAL'),el('h3','Gracias por contactar a Sercot'),el('p','Hemos recibido tu consulta. Nuestro equipo revisará los antecedentes que compartiste y se pondrá en contacto contigo por teléfono o correo electrónico para conversar sobre tu caso y orientarte en los siguientes pasos.'));
-    result.append(summary,notice,thanks,copy,edit,editQuery,status);focusHeading();
+    result.append(summary,notice,send,copy,edit,editQuery,status);focusHeading();
   }
   const requested=new URLSearchParams(location.search).get('servicio');
   if(requested&&[...choice.options].some(o=>o.value===requested)){choice.value=requested;showForm(false)}else showChoice();

@@ -56,3 +56,10 @@ nav.category-links>a:not([aria-current="true"]):hover{color:#173e36;background:#
 
 /* Reserve the catalog area so shorter categories do not pull the page upward. */
 .category-section{min-height:660px}.category-section .service-grid{grid-auto-rows:minmax(265px,auto)}
+
+/* Botón flotante de WhatsApp, siempre visible en la esquina inferior derecha. */
+.whatsapp-float{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;background:#25d366;color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.28);transition:transform .15s,box-shadow .15s}
+.whatsapp-float:hover{transform:scale(1.07);box-shadow:0 6px 18px rgba(0,0,0,.34)}
+.whatsapp-float:focus-visible{outline:3px solid #173e36;outline-offset:3px}
+@media(max-width:650px){.whatsapp-float{right:14px;bottom:14px;width:56px;height:56px}}
+@media(prefers-reduced-motion:reduce){.whatsapp-float{transition:none}}
