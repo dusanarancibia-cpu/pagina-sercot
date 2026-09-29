@@ -1,0 +1,102 @@
+[
+  [
+    {
+      "question": "¿Puedo cambiar de contador si mi empresa ya está funcionando?",
+      "answer": "Podemos revisar tu situación y organizar el traspaso de antecedentes para definir la continuidad del servicio."
+    },
+    {
+      "question": "¿Qué apoyo necesito para entender mis resultados?",
+      "answer": "Sercot ofrece acompañamiento para interpretar la información contable y conversar sobre las decisiones de tu negocio."
+    }
+  ],
+  [
+    {
+      "question": "¿Puedo contratar apoyo solo para remuneraciones?",
+      "answer": "Podemos evaluar la gestión de remuneraciones y documentación laboral que necesita tu empresa y acordar su alcance."
+    },
+    {
+      "question": "¿Qué pasa si también necesito preparar contratos?",
+      "answer": "Indícalo junto con la gestión de remuneraciones para revisar ambas necesidades en la misma consulta."
+    }
+  ],
+  [
+    {
+      "question": "¿Puedo consultar por la renta de mi empresa y la de sus socios?",
+      "answer": "Podemos revisar ambas necesidades e identificar los antecedentes necesarios para definir el trabajo."
+    },
+    {
+      "question": "¿Puedo comenzar si tengo antecedentes desordenados?",
+      "answer": "Sí, la primera conversación puede servir para identificar qué información tienes y qué falta reunir."
+    }
+  ],
+  [
+    {
+      "question": "¿Puedo consultar si ejerzo de manera independiente y también tengo una sociedad médica?",
+      "answer": "Sí. Puedes indicar ambas situaciones para que conversemos sobre tu actividad y el apoyo contable y tributario que necesitas."
+    },
+    {
+      "question": "¿Sercot puede ayudarme a evaluar mi estructura actual?",
+      "answer": "Podemos revisar tu forma de ejercer y conversar sobre los aspectos contables y tributarios de tu organización. La alternativa adecuada depende de tus antecedentes."
+    }
+  ],
+  [
+    {
+      "question": "¿Puedo consultar por una devolución relacionada con cambio de sujeto?",
+      "answer": "Sercot trabaja con estas solicitudes y puede revisar tu actividad y antecedentes para evaluar el apoyo que necesitas."
+    },
+    {
+      "question": "¿Puedo pedir apoyo si ya inicié una solicitud?",
+      "answer": "Sí. Indica en qué etapa estás para revisar el estado de la gestión y acordar los siguientes pasos."
+    }
+  ],
+  [
+    {
+      "question": "¿Sercot apoya solicitudes de devolución de IVA exportador?",
+      "answer": "Sí. Podemos conversar sobre tu actividad exportadora, los antecedentes disponibles y la etapa de tu solicitud."
+    },
+    {
+      "question": "¿Puedo consultar antes de presentar mi primera solicitud?",
+      "answer": "Sí. Podemos partir por revisar tu situación e identificar el trabajo que requiere preparar la gestión."
+    }
+  ],
+  [
+    {
+      "question": "¿Puedo revisar cómo están organizadas mis empresas?",
+      "answer": "Podemos analizar los aspectos contables, societarios y tributarios de tu estructura y conversar sobre tus objetivos."
+    },
+    {
+      "question": "¿Puedo incluir una inquietud patrimonial en la consulta?",
+      "answer": "Sí. Puedes explicar qué deseas organizar para identificar el alcance contable y tributario y las coordinaciones adicionales que requiera el caso."
+    }
+  ],
+  [
+    {
+      "question": "¿Puedo recibir ayuda desde la idea hasta la primera factura?",
+      "answer": "Sercot ofrece acompañamiento para evaluar la estructura y organizar las gestiones de puesta en marcha hasta la primera facturación."
+    },
+    {
+      "question": "¿Puedo consultar si ya inicié algunos trámites?",
+      "answer": "Sí. Cuéntanos qué has realizado y qué falta para definir desde dónde acompañarte."
+    }
+  ],
+  [
+    {
+      "question": "¿Puedo contratar una asesoría para una duda puntual?",
+      "answer": "Sí. La asesoría permite revisar tu situación y conversar sobre alternativas y próximos pasos; sus condiciones se informan antes de acordarla."
+    },
+    {
+      "question": "¿Una asesoría es lo mismo que pedir una cotización?",
+      "answer": "La asesoría analiza una situación. La cotización define alcance y condiciones de un trabajo solicitado."
+    }
+  ],
+  [
+    {
+      "question": "¿Sercot puede apoyar la declaración de inventarios de mi empresa de reciclaje?",
+      "answer": "Podemos conversar sobre tu declaración de inventarios y el apoyo que necesitas para prepararla."
+    },
+    {
+      "question": "¿Puedo consultar por contabilidad y una gestión tributaria del rubro a la vez?",
+      "answer": "Sí. Describe ambas necesidades para que revisemos el contexto de tu operación y definamos el alcance del trabajo."
+    }
+  ]
+]
