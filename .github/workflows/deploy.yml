@@ -1,0 +1,38 @@
+name: Desplegar sitio
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generar y validar
+        run: |
+          python web/build.py
+          python web/verify.py
+
+      - name: Subir por FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          protocol: ftps
+          local-dir: ./web/
+          server-dir: ${{ secrets.FTP_DIR }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            build.py
+            verify.py
+            service-faqs.json
+            __pycache__/**
